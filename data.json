@@ -1,0 +1,411 @@
+{
+    "heroes":[{
+        "name":"Gladiator Maximus",
+        "stats":{
+            "health":1200,
+            "energy":100,
+            "attack":120,
+            "defense":120,
+            "specialattack":85,
+            "specialdefense":75,
+            "block":0.08,
+            "speed":95,
+            "crit":0.08,
+            "magicresist":0,
+            "healthregen":25,
+            "energyregen":10,
+            "gold":500,
+            "level":1,
+            "BigHands":false
+        },
+        "weapons":{
+            "main":false,
+            "off":false,
+            "2H":false
+        },
+        "armor":{
+            "head":false,
+            "chest":false,
+            "shoulders":false,
+            "hands":false,
+            "legs":false,
+            "boots":false,
+            "trinket":false,
+            "ring":false
+        },
+        "talents":[
+            {
+                "tree":"Discipline",
+                "skills":[{
+                    "name":"Gladiator's Discipline",
+                    "desc":"Determination, Patience, and Resilience flow through Maximus. (++HLTH, ++ERGY, ++BLOCK, ++REGEN)",
+                    "req":0,
+                    "passive":true,
+                    "active":false,
+                    "type":"boost",
+                    "effect":[
+                        {"stat":"health",
+                            "type":"add",
+                            "value":200},
+                        {"stat":"energy",
+                            "type":"add",
+                            "value":50},
+                        {"stat":"block",
+                            "type":"add",
+                            "value":0.05},
+                        {"stat":"healthregen",
+                            "type":"add",
+                            "value":20},
+                        {"stat":"energyregen",
+                            "type":"add",
+                            "value":5}
+                    ]
+                },
+                    {
+                        "name":"Emperor's Favor",
+                        "desc":"The Emperor has bestowed many riches upon you. (+500 Gold)",
+                        "req":0,
+                        "passive":true,
+                        "active":false,
+                        "type":"boost",
+                        "effect":[
+                            {"stat":"gold",
+                                "type":"add",
+                                "value":500}
+                        ]
+                    },
+                    {
+                        "name":"Spot the Weakness",
+                        "desc":"After carefully analyzing your opponent, you strike their weak spot, ensuring a critical hit. (Guaranteed Crit)",
+                        "req":1,
+                        "passive":false,
+                        "active":false,
+                        "cost":100,
+                        "type":"boost",
+                        "effect":[
+                            {"stat":"crit",
+                                "type": "set",
+                                "value": 1}
+                        ]
+                    }]
+            },
+            {
+                "tree":"Madman",
+                "skills":[{
+                    "name":"Blood Will Flow",
+                    "desc":"Maximus dives forward recklessly, slashing his way through his opponent (+100% ATTK, -50% to defenses)",
+                    "req":0,
+                    "passive":false,
+                    "active":false,
+                    "type":"boost",
+                    "cost":50,
+                    "effect":[
+                        {"stat":"attack",
+                            "type":"mult",
+                            "value":2},
+                        {"stat":"defense",
+                            "type":"mult",
+                            "value":0.75},
+                        {"stat":"specialdefense",
+                            "type":"mult",
+                            "value":0.75}
+                    ]
+                },
+                    {
+                        "name":"Blades of Fury",
+                        "desc":"Strike Fast, Strike Hard, Strike Often. (++Crit, ++Attack, ++Speed)",
+                        "req":0,
+                        "passive":true,
+                        "active":false,
+                        "type":"boost",
+                        "effect":[
+                            {"stat":"crit",
+                                "type":"add",
+                                "value":0.05},
+                            {"stat":"attack",
+                                "type":"add",
+                                "value":15},
+                            {"stat":"speed",
+                                "type":"add",
+                                "value":15}
+                        ]
+                    },
+                    {
+                        "name":"Steel Flame",
+                        "desc":"Letting the fire of his rage consume the weapon, Maximus strikes forth with both steel and fire. (1.25x ATK, + SPATK",
+                        "req":1,
+                        "passive":false,
+                        "active":false,
+                        "cost":100,
+                        "type":"attack",
+                        "effect":[
+                            {"stat":"attack",
+                                "type": "mult",
+                                "value": 1.25}
+                        ]
+                    }
+                ]
+            },
+            {
+                "tree":"Behemoth",
+                "skills":[{
+                    "name":"Rockhide Giant",
+                    "desc":"Impenetratable skin, massive strength and increased fortitude, Maximus is not easily felled. (++DEF, ++ATTK, ++HLTH, --SPEED)",
+                    "req":0,
+                    "passive":true,
+                    "active":false,
+                    "type":"boost",
+                    "effect":[
+                        {"stat":"health",
+                            "type":"add",
+                            "value":200},
+                        {"stat":"attack",
+                            "type":"add",
+                            "value":15},
+                        {"stat":"defense",
+                            "type":"add",
+                            "value":15},
+                        {"stat":"speed",
+                            "type":"add",
+                            "value":-20}
+                    ]
+                },
+                    {
+                        "name":"Shoulder Blow",
+                        "desc":"Maximus drives his shoulder into the gut of the opponent, crushing their ribs and crippling them for a short time. (--ERGY, --SPEED)",
+                        "req":0,
+                        "cost":60,
+                        "passive":false,
+                        "active":false,
+                        "type":"cripple",
+                        "effect":[
+                            {"stat":"energy",
+                                "type":"mult",
+                                "value":0.5},
+                            {"stat":"speed",
+                                "type":"mult",
+                                "duration":1,
+                                "value":0.25}
+                        ]
+                    },
+                    {
+                        "name":"Big Hands",
+                        "desc":"2H Weapons in one hand",
+                        "req":1,
+                        "passive":true,
+                        "active":false,
+                        "type":"boost",
+                        "effect":[
+                            {"stat":"BigHands",
+                                "type":"set",
+                                "value":true}
+                        ]
+                    }]
+            }
+        ]
+    },
+        {
+            "name":"Gray Mouser",
+            "stats":{
+                "health":900,
+                "energy":100,
+                "attack":120,
+                "defense":80,
+                "specialattack":110,
+                "specialdefense":90,
+                "block":0.03,
+                "speed":120,
+                "crit":0.13,
+                "magicresist":10,
+                "healthregen":25,
+                "energyregen":10,
+                "gold":500,
+                "level":1
+            },
+            "weapons":{
+                "main":false,
+                "off":false,
+                "2H":false
+            },
+            "armor":{
+                "head":false,
+                "chest":false,
+                "shoulders":false,
+                "hands":false,
+                "legs":false,
+                "boots":false,
+                "trinket":false,
+                "ring":false
+            },
+            "talents":[
+                {
+                    "tree":"Discipline",
+                    "skills":[{
+                        "name":"Gladiator's Discipline",
+                        "desc":"Determination, Patience, and Resilience flow through Maximus. (++HLTH, ++ERGY, ++BLOCK, ++REGEN)",
+                        "req":0,
+                        "passive":true,
+                        "active":false,
+                        "type":"boost",
+                        "effect":[
+                            {"stat":"health",
+                                "type":"add",
+                                "value":200},
+                            {"stat":"energy",
+                                "type":"add",
+                                "value":50},
+                            {"stat":"block",
+                                "type":"add",
+                                "value":0.05},
+                            {"stat":"healthregen",
+                                "type":"add",
+                                "value":20},
+                            {"stat":"energyregen",
+                                "type":"add",
+                                "value":5}
+                        ]
+                    },
+                        {
+                            "name":"Emperor's Favor",
+                            "desc":"The Emperor has bestowed many riches upon you. (+500 Gold)",
+                            "req":0,
+                            "passive":true,
+                            "active":false,
+                            "type":"boost",
+                            "effect":[
+                                {"stat":"gold",
+                                    "type":"add",
+                                    "value":500}
+                            ]
+                        },
+                        {
+                            "name":"Spot the Weakness",
+                            "desc":"After carefully analyzing your opponent, you strike their weak spot, ensuring a critical hit. (Guaranteed Crit)",
+                            "req":1,
+                            "passive":false,
+                            "active":false,
+                            "cost":100,
+                            "type":"boost",
+                            "effect":[
+                                {"stat":"crit",
+                                    "type": "set",
+                                    "value": 1}
+                            ]
+                        }]
+                },
+                {
+                    "tree":"Madman",
+                    "skills":[{
+                        "name":"Blood Will Flow",
+                        "desc":"Maximus dives forward recklessly, slashing his way through his opponent (+100% ATTK, -50% to defenses)",
+                        "req":0,
+                        "passive":false,
+                        "active":false,
+                        "type":"boost",
+                        "cost":50,
+                        "effect":[
+                            {"stat":"attack",
+                                "type":"mult",
+                                "value":2},
+                            {"stat":"defense",
+                                "type":"mult",
+                                "value":0.75},
+                            {"stat":"specialdefense",
+                                "type":"mult",
+                                "value":0.75}
+                        ]
+                    },
+                        {
+                            "name":"Blades of Fury",
+                            "desc":"Strike Fast, Strike Hard, Strike Often. (++Crit, ++Attack, ++Speed)",
+                            "req":0,
+                            "passive":true,
+                            "active":false,
+                            "type":"boost",
+                            "effect":[
+                                {"stat":"crit",
+                                    "type":"add",
+                                    "value":0.05},
+                                {"stat":"attack",
+                                    "type":"add",
+                                    "value":15},
+                                {"stat":"speed",
+                                    "type":"add",
+                                    "value":15}
+                            ]
+                        },
+                        {
+                            "name":"Steel Flame",
+                            "desc":"Letting the fire of his rage consume the weapon, Maximus strikes forth with both steel and fire. (1.25x ATK, + SPATK",
+                            "req":1,
+                            "passive":false,
+                            "active":false,
+                            "cost":100,
+                            "type":"attack",
+                            "effect":[
+                                {"stat":"attack",
+                                    "type": "mult",
+                                    "value": 1.25}
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tree":"Behemoth",
+                    "skills":[{
+                        "name":"Rockhide Giant",
+                        "desc":"Impenetratable skin, massive strength and increased fortitude, Maximus is not easily felled. (++DEF, ++ATTK, ++HLTH, --SPEED)",
+                        "req":0,
+                        "passive":true,
+                        "active":false,
+                        "type":"boost",
+                        "effect":[
+                            {"stat":"health",
+                                "type":"add",
+                                "value":200},
+                            {"stat":"attack",
+                                "type":"add",
+                                "value":15},
+                            {"stat":"defense",
+                                "type":"add",
+                                "value":15},
+                            {"stat":"speed",
+                                "type":"add",
+                                "value":-20}
+                        ]
+                    },
+                        {
+                            "name":"Shoulder Blow",
+                            "desc":"Maximus drives his shoulder into the gut of the opponent, crushing their ribs and crippling them for a short time. (--ERGY, --SPEED)",
+                            "req":0,
+                            "cost":60,
+                            "passive":false,
+                            "active":false,
+                            "type":"cripple",
+                            "effect":[
+                                {"stat":"energy",
+                                    "type":"mult",
+                                    "value":0.5},
+                                {"stat":"speed",
+                                    "type":"mult",
+                                    "duration":1,
+                                    "value":0.25}
+                            ]
+                        },
+                        {
+                            "name":"Big Hands",
+                            "desc":"2H Weapons in one hand",
+                            "req":1,
+                            "passive":true,
+                            "active":false,
+                            "type":"boost",
+                            "effect":[
+                                {"stat":"BigHands",
+                                    "type":"set",
+                                    "value":true}
+                            ]
+                        }]
+                }
+            ]
+        }]
+}

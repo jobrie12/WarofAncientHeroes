@@ -1,0 +1,207 @@
+<html ng-app="WarOfAncientHeroes">
+<head>
+    <title>War of Ancient Heroes</title>
+    <style>
+        body { padding-top: 70px; }
+    </style>
+
+    <!-- used by Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet"/>
+
+
+</head>
+<body ng-controller="gameCtrl">
+
+<div class="well-lg">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+                    <div class="container">
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">War Of Ancient Heroes</h3>
+                    </div>
+                    <div class="panel-body">
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">War Of Ancient Heroes</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div>
+                            <p style="text-align: center"><b>Welcome to War of Ancient Heroes, where YOU can determine the fate of your ancient hero! Lead your hero onto glory that will elicit envy from your friends, enemies, and that neighbor you talked to one time.
+                                Get ready to take on the best! To begin select your hero.</b></p>
+                        </div>
+                        <div align="center"> <select class="input-lg"data-ng-model="hero" data-ng-options="h as h.name for h in heroes"></select> </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary" data-ng-show="hero">
+                    <div class="panel-heading">
+                        <h2 class="panel-title"><h2>{{hero.name}}</h2></h2>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <ul class="list-group">
+                                        <li class="list-group-item list-group-item-success"><h4 class="list-group-item-heading">Health</h4>
+                                            <p class="list-group-item-text">
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{hero.stats.health}}" aria-valuemin="0" aria-valuemax="1500" style="width: {{hero.stats.health / 2000 * 100}}%">
+                                                        {{hero.stats.health}}
+                                                    </div>
+                                                </div>
+                                            </p>
+                                        </li>
+                                        <li class="list-group-item list-group-item-info"><h4 class="list-group-item-heading">Energy</h4>
+                                            <p class="list-group-item-text">
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{hero.stats.energy}}" aria-valuemin="0" aria-valuemax="200" style="width: {{hero.stats.energy / 200 * 100}}%">
+                                                    {{hero.stats.energy}}
+                                                </div>
+                                            </div>
+                                            </p>
+                                        </li>
+                                        <li class="list-group-item list-group-item-danger"><h4 class="list-group-item-heading">Attack</h4>
+                                            <p class="list-group-item-text">
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{hero.stats.attack}}" aria-valuemin="0" aria-valuemax="200" style="width: {{hero.stats.attack / 200 * 100}}%">
+                                                    {{hero.stats.attack}}
+                                                </div>
+                                            </div>
+                                            </p>
+                                        </li>
+                                        <li class="list-group-item list-group-item-warning"><h4 class="list-group-item-heading">Defense</h4>
+                                            <p class="list-group-item-text">
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{hero.stats.defense}}" aria-valuemin="0" aria-valuemax="200" style="width: {{hero.stats.defense / 200 * 100}}%">
+                                                    {{hero.stats.defense}}
+                                                </div>
+                                            </div>
+                                            </p>
+                                        </li>
+                                        <li class="list-group-item list-group-item-info"><h4 class="list-group-item-heading">Special Attack</h4>
+                                            <p class="list-group-item-text">
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{hero.stats.specialattack}}" aria-valuemin="0" aria-valuemax="200" style="width: {{hero.stats.specialattack / 200 * 100}}%">
+                                                    {{hero.stats.specialattack}}
+                                                </div>
+                                            </div>
+                                            </p>
+                                        </li>
+                                        <li class="list-group-item list-group-item-info"><h4 class="list-group-item-heading">Special Defense</h4>
+                                            <p class="list-group-item-text">
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{hero.stats.specialdefense}}" aria-valuemin="0" aria-valuemax="200" style="width: {{hero.stats.specialdefense / 200 * 100}}%">
+                                                    {{hero.stats.specialdefense}}
+                                                </div>
+                                            </div>
+                                            </p>
+                                        </li>
+
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <ul class="list-group">
+                                    <li class="list-group-item list-group-item-info"><h4 class="list-group-item-heading">Speed</h4>
+                                        <p class="list-group-item-text">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{hero.stats.speed}}" aria-valuemin="0" aria-valuemax="200" style="width: {{hero.stats.speed / 200 * 100}}%">
+                                                {{hero.stats.speed}}
+                                            </div>
+                                        </div>
+                                        </p>
+                                    </li>
+                                    <li class="list-group-item list-group-item-warning"><h4 class="list-group-item-heading">Block</h4>
+                                        <p class="list-group-item-text">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{hero.stats.block * 100}}" aria-valuemin="0" aria-valuemax="20" style="width: {{hero.stats.block / .20 * 100}}%">
+                                                {{hero.stats.block * 100}}%
+                                            </div>
+                                        </div>
+                                        </p>
+                                    </li>
+                                    <li class="list-group-item list-group-item-danger"><h4 class="list-group-item-heading">Crit Chance</h4>
+                                        <p class="list-group-item-text">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{hero.stats.crit * 100}}" aria-valuemin="0" aria-valuemax="20" style="width: {{hero.stats.crit / .20 * 100}}%">
+                                                {{hero.stats.crit * 100}}%
+                                            </div>
+                                        </div>
+                                        </p>
+                                    </li>
+                                    <li class="list-group-item list-group-item-info"><h4 class="list-group-item-heading">Magical Resistance</h4>
+                                        <p class="list-group-item-text">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{hero.stats.magicresist}}" aria-valuemin="0" aria-valuemax="30" style="width: {{hero.stats.magicresist/ 30 * 100}}%">
+                                                {{hero.stats.magicresist}}
+                                            </div>
+                                        </div>
+                                        </p>
+                                    </li>
+                                    <li class="list-group-item list-group-item-success"><h4 class="list-group-item-heading">Health Regeneration</h4>
+                                        <p class="list-group-item-text">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{hero.stats.healthregen}}" aria-valuemin="0" aria-valuemax="50" style="width: {{hero.stats.healthregen / 50 * 100}}%">
+                                                {{hero.stats.healthregen}}
+                                            </div>
+                                        </div>
+                                        </p>
+                                    </li>
+                                    <li class="list-group-item list-group-item-info"><h4 class="list-group-item-heading">Energy Regeneration</h4>
+                                        <p class="list-group-item-text">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{hero.stats.energyregen}}" aria-valuemin="0" aria-valuemax="25" style="width: {{hero.stats.energyregen / 25 * 100}}%">
+                                                {{hero.stats.energyregen}}
+                                            </div>
+                                        </div>
+                                        </p>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+        <script src="lib/jquery-2.0.3.min.js"></script>
+        <script src="lib/angular.min.js"></script>
+        <script src="lib/angular-route.min.js"></script>
+        <script src="lib/bootstrap.min.js"></script>
+        <script src="lib/sugar.min.js"></script>
+        <script src="js/app.js"></script>
+</body>
+</html>
