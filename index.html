@@ -46,7 +46,10 @@
                             <p style="text-align: center"><b>Welcome to War of Ancient Heroes, where YOU can determine the fate of your ancient hero! Lead your hero onto glory that will elicit envy from your friends, enemies, and that neighbor you talked to one time.
                                 Get ready to take on the best! To begin select your hero.</b></p>
                         </div>
-                        <div align="center"> <select class="input-lg"data-ng-model="hero" data-ng-options="h as h.name for h in heroes"></select> </div>
+                        <div align="center">
+                            <select class="input-lg"data-ng-model="hero" data-ng-options="h as h.name for h in heroes"></select>
+                            <a class="btn btn-primary" role="button">Select</a>
+                        </div>
 
                     </div>
                 </div>
@@ -65,7 +68,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <ul class="list-group">
                                         <li class="list-group-item list-group-item-success"><h4 class="list-group-item-heading">Health</h4>
                                             <p class="list-group-item-text">
@@ -103,29 +106,20 @@
                                             </div>
                                             </p>
                                         </li>
-                                        <li class="list-group-item list-group-item-info"><h4 class="list-group-item-heading">Special Attack</h4>
-                                            <p class="list-group-item-text">
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{hero.stats.specialattack}}" aria-valuemin="0" aria-valuemax="200" style="width: {{hero.stats.specialattack / 200 * 100}}%">
-                                                    {{hero.stats.specialattack}}
-                                                </div>
-                                            </div>
-                                            </p>
-                                        </li>
-                                        <li class="list-group-item list-group-item-info"><h4 class="list-group-item-heading">Special Defense</h4>
-                                            <p class="list-group-item-text">
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{hero.stats.specialdefense}}" aria-valuemin="0" aria-valuemax="200" style="width: {{hero.stats.specialdefense / 200 * 100}}%">
-                                                    {{hero.stats.specialdefense}}
-                                                </div>
-                                            </div>
-                                            </p>
-                                        </li>
-
                                 </ul>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <ul class="list-group">
+                                    <li class="list-group-item list-group-item-info"><h4 class="list-group-item-heading">Special Attack</h4>
+                                        <p class="list-group-item-text">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{hero.stats.specialattack}}" aria-valuemin="0" aria-valuemax="200" style="width: {{hero.stats.specialattack / 200 * 100}}%">
+                                                {{hero.stats.specialattack}}
+                                            </div>
+                                        </div>
+                                        </p>
+                                    </li>
+
                                     <li class="list-group-item list-group-item-info"><h4 class="list-group-item-heading">Speed</h4>
                                         <p class="list-group-item-text">
                                         <div class="progress">
@@ -153,6 +147,10 @@
                                         </div>
                                         </p>
                                     </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-2">
+                                <ul class="list-group">
                                     <li class="list-group-item list-group-item-info"><h4 class="list-group-item-heading">Magical Resistance</h4>
                                         <p class="list-group-item-text">
                                         <div class="progress">
@@ -180,8 +178,42 @@
                                         </div>
                                         </p>
                                     </li>
+                                    <li class="list-group-item list-group-item-warning"><h4 class="list-group-item-heading">Gold</h4>
+                                        <p class="list-group-item-text">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{hero.stats.gold}}" aria-valuemin="0" aria-valuemax="700" style="width: {{hero.stats.gold / 700 * 100}}%">
+                                                {{hero.stats.gold}}
+                                            </div>
+                                        </div>
+                                        </p>
+                                    </li>
                                 </ul>
 
+                            </div>
+                            <div class="col-md-6">
+                                <h2>Talents</h2><select class="input-lg"data-ng-model="tree" data-ng-options="t as t.tree for t in hero.talents" data-ng-show="hero"></select>
+                                <div class="media" data-ng-repeat="talent in tree.skills">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <img class="media-object" src="" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h4 class="media-heading">{{talent.name}}</h4>
+
+                                            </div>
+                                            <div class="col-md-6">
+                                                <i data-ng-show="talent.passive" class="pull-right"><b>(PASSIVE)</b> </i>
+                                            </div>
+                                        </div>
+                                        {{talent.desc}}
+                                        <div data-ng-show="talent.req == 2">
+                                            <b style="color: red">REQUIRES BOTH TALENTS ABOVE TO BE UNLOCKED</b>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>

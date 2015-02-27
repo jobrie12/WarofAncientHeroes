@@ -9,7 +9,7 @@ angular
                 console.log($scope.heroes);
             })
             $scope.hero = null;
-            //$scope.heroes = [{"name":"BRBRB"},{"name":"KLKLKLK"}];
+            $scope.tree = null;
         }
 
         init();
